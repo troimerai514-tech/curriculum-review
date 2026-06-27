@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026학년도 1학기 교육과정 반성회 작성 자료 도우미</title>
+    <script type="text/javascript" nonce="6b5fe167924c4dddba44d84c7ca" src="//local.adguard.org?ts=1782526273922&amp;type=content-script&amp;dmn=www.genspark.ai&amp;url=https%3A%2F%2Fwww.genspark.ai%2Fapi%2Ffiles%2Fs%2FBGREpTDj&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="6b5fe167924c4dddba44d84c7ca" src="//local.adguard.org?ts=1782526273922&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+      rel="stylesheet"
+    />
+    <style>
+      @page { size: A4; margin: 0; }
+      * { box-sizing: border-box; }
+      html, body { background: #e5e7eb; }
+      body {
+        font-family: 'Pretendard', 'Malgun Gothic', '맑은 고딕', sans-serif;
+        margin: 0 auto;
+        padding: 20px 0;
+        color: #1f2937;
+        font-size: 10pt;
+        line-height: 1.4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* ============================================ */
+      /* 🎨 수정 가능 영역 색상 하이라이트                  */
+      /* ============================================ */
+      .edit-red, .edit-green, .edit-blue, .edit-yellow {
+        position: relative;
+        padding: 1px 4px;
+        border-radius: 3px;
+        cursor: text;
+        transition: all 0.2s;
+      }
+      .edit-red { background: #fee2e2; border-bottom: 2px dashed #dc2626; }
+      .edit-green { background: #d1fae5; border-bottom: 2px dashed #059669; }
+      .edit-blue { background: #dbeafe; border-bottom: 2px dashed #2563eb; }
+      .edit-yellow { background: #fef3c7; border-bottom: 2px dashed #d97706; }
+      .edit-red:hover, .edit-green:hover, .edit-blue:hover, .edit-yellow:hover {
+        filter: brightness(0.95);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+      .edit-red::before, .edit-green::before, .edit-blue::before, .edit-yellow::before {
+        content: '✏️';
+        position: absolute;
+        top: -10px;
+        right: -8px;
+        font-size: 9pt;
+        background: white;
+        border-radius: 50%;
+        padding: 0 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      }
+
+      /* ============================================ */
+      /* 📘 안내 배너                                   */
+      /* ============================================ */
+      .edit-guide {
+        max-width: 210mm;
+        margin: 0 auto 15px auto;
+        background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+        color: white;
+        padding: 14px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(4, 120, 87, 0.25);
+        font-size: 9.5pt;
+        line-height: 1.5;
+      }
+      .edit-guide h3 { margin: 0 0 8px 0; font-size: 12pt; font-weight: 700; }
+      .edit-guide .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .edit-guide .legend-item {
+        background: rgba(255,255,255,0.18);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 9pt;
+        backdrop-filter: blur(5px);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .edit-guide .color-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+      .edit-guide .tip {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+        font-size: 8.7pt;
+        opacity: 0.95;
+      }
+
+      /* ============================================ */
+      /* 📄 페이지 본문                                  */
+      /* ============================================ */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: #ffffff;
+        padding: 11mm 13mm 11mm 13mm;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== 🌟 학교 비전 배너 ===== */
+      .vision-banner {
+        background: #ffffff;
+        padding: 8px 18px;
+        border-radius: 6px;
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(30, 58, 138, 0.12);
+        border: 1.5mm solid #1e3a8a;
+      }
+      .vision-text {
+        font-size: 12.5pt;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        text-align: center;
+        font-family: 'Pretendard', 'Noto Serif KR', '바탕', serif;
+      }
+      .vision-text .v-che { color: #dc2626; font-weight: 900; }
+      .vision-text .v-in { color: #2563eb; font-weight: 900; }
+      .vision-text .v-ji { color: #059669; font-weight: 900; }
+      .vision-text .highlight { color: #7c3aed; font-weight: 900; }
+      .vision-text .hanja { font-weight: 700; font-size: 11.5pt; }
+      .vision-text .v-che .hanja { color: #dc2626; }
+      .vision-text .v-in .hanja { color: #2563eb; }
+      .vision-text .v-ji .hanja { color: #059669; }
+      .vision-text .normal { color: #1e3a8a; }
+
+      /* ===== HEADER ===== */
+      .doc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #047857;
+        margin-bottom: 7px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .doc-header .left { flex: 1; min-width: 0; }
+      .doc-header .left .label {
+        display: inline-block;
+        font-size: 8pt;
+        color: #047857;
+        background: #d1fae5;
+        padding: 2px 9px;
+        border-radius: 3px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .doc-header h1 {
+        font-size: 17pt;
+        color: #064e3b;
+        margin: 0 0 2px 0;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .doc-header .subtitle {
+        font-size: 9pt;
+        color: #4b5563;
+        margin: 0;
+        font-weight: 500;
+      }
+      .doc-header .meta {
+        text-align: right;
+        font-size: 7.8pt;
+        color: #6b7280;
+        line-height: 1.5;
+        flex-shrink: 0;
+      }
+      .doc-header .meta strong { color: #374151; }
+
+      /* ===== 📅 제출 기한 박스 ===== */
+      .deadline-box {
+        background: #eff6ff;
+        border: 1px solid #93c5fd;
+        border-left: 4px solid #2563eb;
+        padding: 7px 12px;
+        margin-bottom: 7px;
+        border-radius: 4px;
+        page-break-inside: avoid;
+      }
+      .deadline-title {
+        font-size: 9.5pt;
+        color: #1e3a8a;
+        font-weight: 700;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .deadline-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .deadline-item {
+        background: white;
+        border: 1px solid #dbeafe;
+        border-radius: 4px;
+        padding: 6px 10px;
+        font-size: 8.5pt;
+        line-height: 1.5;
+      }
+      .deadline-item .dtag {
+        display: inline-block;
+        background: #2563eb;
+        color: white;
+        font-size: 7.5pt;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin-right: 5px;
+      }
+      .deadline-item .dtag.green { background: #059669; }
+      .deadline-item strong { color: #1e3a8a; font-weight: 700; }
+      .deadline-item .date { color: #b91c1c; font-weight: 700; }
+
+      /* ===== AI 활용 안내 ===== */
+      .ai-guide {
+        background: #f0f9ff;
+        border: 1px solid #bae6fd;
+        border-left: 4px solid #0284c7;
+        padding: 6px 12px;
+        margin-bottom: 7px;
+        border-radius: 4px;
+        page-break-inside: avoid;
+      }
+      .ai-guide .ai-title {
+        font-size: 9pt;
+        color: #0c4a6e;
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+      .ai-guide .ai-content {
+        font-size: 8.3pt;
+        color: #1f2937;
+        line-height: 1.5;
+      }
+      .ai-guide .ai-content strong { color: #0369a1; }
+
+      /* ===== SECTION TITLE ===== */
+      .section-title {
+        font-size: 10pt;
+        color: #064e3b;
+        font-weight: 700;
+        margin: 0 0 6px 0;
+        padding-left: 8px;
+        border-left: 3.5px solid #047857;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .section-title .sub {
+        font-size: 8pt;
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      /* ============================================ */
+      /* 🎯 부서 버튼형 카드 (7개 → 4열 2행)                */
+      /* ============================================ */
+      .dept-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+        margin-bottom: 7px;
+      }
+      .dept-btn {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        padding: 8px 10px 9px 10px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border-radius: 7px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        transition: all 0.25s ease;
+        border: none;
+      }
+      .dept-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      }
+      .dept-btn.c1 { background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-top: 3.5px solid #2563eb; }
+      .dept-btn.c2 { background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); border-top: 3.5px solid #059669; }
+      .dept-btn.c3 { background: linear-gradient(135deg, #fed7aa 0%, #fff7ed 100%); border-top: 3.5px solid #ea580c; }
+      .dept-btn.c4 { background: linear-gradient(135deg, #fecaca 0%, #fef2f2 100%); border-top: 3.5px solid #dc2626; }
+      .dept-btn.c5 { background: linear-gradient(135deg, #ddd6fe 0%, #f5f3ff 100%); border-top: 3.5px solid #7c3aed; }
+      .dept-btn.c6 { background: linear-gradient(135deg, #fbcfe8 0%, #fdf2f8 100%); border-top: 3.5px solid #db2777; }
+      .dept-btn.c7 { background: linear-gradient(135deg, #fef3c7 0%, #fefce8 100%); border-top: 3.5px solid #ca8a04; }
+
+      .dept-head {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+      .dept-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        font-size: 9.5pt;
+        font-weight: 800;
+        color: #ffffff;
+        border-radius: 7px;
+        flex-shrink: 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      }
+      .c1 .dept-num { background: #2563eb; }
+      .c2 .dept-num { background: #059669; }
+      .c3 .dept-num { background: #ea580c; }
+      .c4 .dept-num { background: #dc2626; }
+      .c5 .dept-num { background: #7c3aed; }
+      .c6 .dept-num { background: #db2777; }
+      .c7 .dept-num { background: #ca8a04; }
+      .dept-name {
+        font-size: 10.3pt;
+        font-weight: 800;
+        color: #111827;
+        letter-spacing: -0.5px;
+      }
+      .dept-icon {
+        font-size: 13pt;
+        margin-left: auto;
+        line-height: 1;
+      }
+      .dept-desc {
+        font-size: 8pt;
+        color: #374151;
+        margin-bottom: 6px;
+        line-height: 1.4;
+        min-height: 22px;
+      }
+      .dept-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8.7pt;
+        font-weight: 700;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: all 0.25s;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      }
+      .c1 .dept-action { background: #2563eb; }
+      .c2 .dept-action { background: #059669; }
+      .c3 .dept-action { background: #ea580c; }
+      .c4 .dept-action { background: #dc2626; }
+      .c5 .dept-action { background: #7c3aed; }
+      .c6 .dept-action { background: #db2777; }
+      .c7 .dept-action { background: #ca8a04; }
+      .dept-btn:hover .dept-action { filter: brightness(1.1); }
+
+      /* ============================================ */
+      /* 🎓 학년부 카드 (7개 - 유+1~6학년)             */
+      /* ============================================ */
+      .grade-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+        margin-bottom: 7px;
+      }
+      .grade-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        padding: 8px 6px 9px 6px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border-radius: 7px;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        transition: all 0.25s ease;
+        border-top: 3.5px solid;
+        text-align: center;
+      }
+      .grade-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      }
+      .grade-btn.gk { background: #fdf2f8; border-top-color: #db2777; }
+      .grade-btn.g1 { background: #fef2f2; border-top-color: #dc2626; }
+      .grade-btn.g2 { background: #fff7ed; border-top-color: #ea580c; }
+      .grade-btn.g3 { background: #fefce8; border-top-color: #ca8a04; }
+      .grade-btn.g4 { background: #ecfdf5; border-top-color: #059669; }
+      .grade-btn.g5 { background: #eff6ff; border-top-color: #2563eb; }
+      .grade-btn.g6 { background: #f5f3ff; border-top-color: #7c3aed; }
+      .grade-icon {
+        font-size: 18pt;
+        line-height: 1;
+        margin-bottom: 3px;
+      }
+      .grade-name {
+        font-size: 10.5pt;
+        font-weight: 800;
+        color: #111827;
+        margin-bottom: 4px;
+        letter-spacing: -0.5px;
+      }
+      .grade-action {
+        font-size: 7.8pt;
+        font-weight: 700;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-top: 2px;
+      }
+      .gk .grade-action { background: #db2777; }
+      .g1 .grade-action { background: #dc2626; }
+      .g2 .grade-action { background: #ea580c; }
+      .g3 .grade-action { background: #ca8a04; }
+      .g4 .grade-action { background: #059669; }
+      .g5 .grade-action { background: #2563eb; }
+      .g6 .grade-action { background: #7c3aed; }
+
+      /* ===== ⚠️ 주의사항 ===== */
+      .warning {
+        background: #fef2f2;
+        border: 1px solid #fca5a5;
+        border-left: 4px solid #dc2626;
+        padding: 6px 11px 7px 11px;
+        page-break-inside: avoid;
+        border-radius: 4px;
+        margin-bottom: 7px;
+      }
+      .warning .wtitle {
+        font-size: 9pt;
+        color: #991b1b;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .warning ul { margin: 0; padding: 0; list-style: none; }
+      .warning li {
+        font-size: 8pt;
+        color: #1f2937;
+        line-height: 1.5;
+        padding-left: 2px;
+        margin-bottom: 2px;
+      }
+      .warning li .em { font-weight: 700; color: #991b1b; }
+
+      /* ============================================ */
+      /* 📌 참고자료 (패들렛) - NEW                       */
+      /* ============================================ */
+      .reference-section {
+        background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+        border: 1px solid #fbbf24;
+        border-left: 4px solid #d97706;
+        border-radius: 6px;
+        padding: 9px 14px;
+        margin-bottom: 7px;
+        page-break-inside: avoid;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .ref-icon {
+        font-size: 24pt;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .ref-content { flex: 1; min-width: 180px; }
+      .ref-title {
+        font-size: 10pt;
+        color: #92400e;
+        font-weight: 800;
+        margin-bottom: 2px;
+        letter-spacing: -0.5px;
+      }
+      .ref-desc {
+        font-size: 8.3pt;
+        color: #78350f;
+        line-height: 1.5;
+      }
+      .ref-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 9pt;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(217, 119, 6, 0.3);
+        transition: all 0.25s;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .ref-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(217, 119, 6, 0.4);
+        filter: brightness(1.05);
+      }
+
+      /* ===== FOOTER ===== */
+      .doc-footer {
+        border-top: 1.5px solid #047857;
+        padding-top: 5px;
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.8pt;
+        color: #4b5563;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding-bottom: 0;
+      }
+      .doc-footer .cheer {
+        color: #047857;
+        font-weight: 600;
+        font-size: 8.5pt;
+      }
+
+      /* ============================================ */
+      /* 📱 반응형 디자인 - 태블릿 (1024px 이하)          */
+      /* ============================================ */
+      @media screen and (max-width: 1024px) {
+        body {
+          padding: 12px 10px;
+          font-size: 11pt;
+        }
+        .edit-guide {
+          font-size: 10.5pt;
+          padding: 12px 16px;
+        }
+        .edit-guide h3 { font-size: 13pt; }
+        .page {
+          width: 100%;
+          max-width: 210mm;
+          min-height: auto;
+          padding: 18px 16px;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .vision-text { font-size: 14pt; }
+        .vision-text .hanja { font-size: 13pt; }
+        .doc-header h1 { font-size: 19pt; }
+        .doc-header .subtitle { font-size: 10.5pt; }
+        .doc-header .label { font-size: 9.5pt; }
+        .doc-header .meta { font-size: 9.5pt; }
+        .deadline-title { font-size: 11pt; }
+        .deadline-item { font-size: 10pt; padding: 8px 12px; }
+        .deadline-item .dtag { font-size: 9pt; }
+        .ai-guide .ai-title { font-size: 10.5pt; }
+        .ai-guide .ai-content { font-size: 9.7pt; }
+        .section-title { font-size: 12pt; }
+        .section-title .sub { font-size: 9.5pt; }
+        .dept-name { font-size: 12pt; }
+        .dept-desc { font-size: 9.5pt; min-height: auto; }
+        .dept-action { font-size: 10pt; padding: 7px 12px; }
+        .dept-num { width: 26px; height: 26px; font-size: 11pt; }
+        .dept-icon { font-size: 16pt; }
+        .grade-name { font-size: 12pt; }
+        .grade-action { font-size: 9.5pt; padding: 5px 10px; }
+        .grade-icon { font-size: 22pt; }
+        .warning .wtitle { font-size: 10.5pt; }
+        .warning li { font-size: 9.7pt; line-height: 1.6; margin-bottom: 4px; }
+        .ref-title { font-size: 12pt; }
+        .ref-desc { font-size: 10pt; }
+        .ref-btn { font-size: 10.5pt; padding: 10px 20px; }
+        .ref-icon { font-size: 28pt; }
+        .doc-footer { font-size: 9.5pt; }
+        .doc-footer .cheer { font-size: 10pt; }
+      }
+
+      /* ============================================ */
+      /* 📱 반응형 디자인 - 모바일 (768px 이하)           */
+      /* ============================================ */
+      @media screen and (max-width: 768px) {
+        body { padding: 8px 6px; }
+        .edit-guide { padding: 12px 14px; font-size: 10pt; }
+        .edit-guide h3 { font-size: 12pt; }
+        .edit-guide .legend { gap: 5px; }
+        .edit-guide .legend-item { font-size: 9pt; padding: 3px 9px; }
+        .page { padding: 14px 12px; }
+        .vision-banner { padding: 10px 12px; border-width: 1mm; }
+        .vision-text { font-size: 12pt; line-height: 1.5; }
+        .vision-text .hanja { font-size: 11pt; }
+        .doc-header { flex-direction: column; gap: 6px; }
+        .doc-header h1 { font-size: 18pt; }
+        .doc-header .meta { text-align: left; font-size: 9.5pt; }
+        .deadline-grid { grid-template-columns: 1fr; gap: 6px; }
+        .dept-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+        .grade-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .dept-desc { min-height: auto; }
+        .ai-guide .ai-content { line-height: 1.65; }
+        .ai-guide .ai-content strong { display: inline-block; margin-top: 3px; }
+        .reference-section { flex-direction: column; align-items: stretch; text-align: center; }
+        .ref-content { text-align: center; min-width: 100%; }
+        .ref-btn { justify-content: center; width: 100%; box-sizing: border-box; }
+        .doc-footer { flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; }
+        .toggle-btn {
+          top: auto;
+          bottom: 15px;
+          right: 15px;
+          padding: 9px 14px;
+          font-size: 9.5pt;
+        }
+      }
+
+      /* ============================================ */
+      /* 📱 반응형 디자인 - 소형 모바일 (480px 이하)      */
+      /* ============================================ */
+      @media screen and (max-width: 480px) {
+        .dept-grid { grid-template-columns: 1fr; }
+        .grade-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+        .vision-text { font-size: 11pt; }
+        .vision-text .hanja { font-size: 10pt; }
+        .doc-header h1 { font-size: 16pt; }
+        .section-title { font-size: 11.5pt; }
+        .grade-icon { font-size: 24pt; }
+        .grade-name { font-size: 13pt; }
+        .grade-action { font-size: 10pt; padding: 6px 12px; }
+        .dept-icon { font-size: 18pt; }
+        .dept-name { font-size: 13pt; }
+        .dept-action { font-size: 10.5pt; padding: 9px 14px; }
+        .ref-icon { font-size: 32pt; }
+        .ref-title { font-size: 13pt; }
+        .ref-btn { font-size: 11pt; padding: 12px 20px; }
+      }
+
+      /* ===== PRINT ===== */
+      @media print {
+        html, body { background: #ffffff !important; }
+        body { padding: 0; margin: 0; }
+        .edit-guide { display: none !important; }
+        .edit-red, .edit-green, .edit-blue, .edit-yellow {
+          background: transparent !important;
+          border-bottom: none !important;
+          padding: 0 !important;
+        }
+        .edit-red::before, .edit-green::before, .edit-blue::before, .edit-yellow::before {
+          display: none !important;
+        }
+        .page {
+          width: 210mm;
+          min-height: 297mm;
+          padding: 11mm 13mm 11mm 13mm;
+          margin: 0;
+          box-shadow: none;
+          page-break-after: avoid;
+          display: flex;
+          flex-direction: column;
+        }
+        .doc-footer { margin-top: auto; }
+        .dept-btn, .grade-btn, .warning, .ai-guide, .deadline-box, .reference-section {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .dept-btn, .grade-btn, .ref-btn {
+          box-shadow: none !important;
+          transform: none !important;
+        }
+        .toggle-btn { display: none !important; }
+        /* 인쇄 시 모든 반응형 무효화 - A4 고정 */
+        .dept-grid { grid-template-columns: repeat(4, 1fr) !important; }
+        .grade-grid { grid-template-columns: repeat(7, 1fr) !important; }
+        .deadline-grid { grid-template-columns: 1fr 1fr !important; }
+        .doc-header { flex-direction: row !important; }
+        .reference-section { flex-direction: row !important; }
+      }
+
+      /* ===== 토글 버튼 ===== */
+      .toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #047857;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 25px;
+        font-size: 10pt;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+        z-index: 1000;
+        font-family: inherit;
+      }
+      .toggle-btn:hover {
+        background: #065f46;
+        transform: scale(1.05);
+      }
+      body.hide-highlights .edit-red,
+      body.hide-highlights .edit-green,
+      body.hide-highlights .edit-blue,
+      body.hide-highlights .edit-yellow {
+        background: transparent !important;
+        border-bottom: none !important;
+        padding: 0 !important;
+      }
+      body.hide-highlights .edit-red::before,
+      body.hide-highlights .edit-green::before,
+      body.hide-highlights .edit-blue::before,
+      body.hide-highlights .edit-yellow::before {
+        display: none !important;
+      }
+      body.hide-highlights .edit-guide { display: none !important; }
+    </style>
+  </head>
+  <body>
+
+    <!-- 🎨 토글 버튼 -->
+    <button class="toggle-btn" onclick="document.body.classList.toggle('hide-highlights'); this.textContent = document.body.classList.contains('hide-highlights') ? '🎨 수정 표시 켜기' : '👁️ 미리보기 (수정 표시 끄기)';">
+      👁️ 미리보기 (수정 표시 끄기)
+    </button>
+
+    <!-- 📘 편집 안내 배너 -->
+    <div class="edit-guide">
+      <h3>🎨 색상 하이라이트로 표시된 부분만 자유롭게 수정하세요!</h3>
+      <div>색상이 칠해진 부분(<strong>✏️ 표시</strong>)을 메모장이나 한글에서 클릭하여 학교 상황에 맞게 변경하시면 됩니다.</div>
+      <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#fee2e2;"></span>🔴 빨강 = 학교명 · 라벨</span>
+        <span class="legend-item"><span class="color-dot" style="background:#d1fae5;"></span>🟢 초록 = 부서명 · 발행정보</span>
+        <span class="legend-item"><span class="color-dot" style="background:#dbeafe;"></span>🔵 파랑 = 링크 주소</span>
+        <span class="legend-item"><span class="color-dot" style="background:#fef3c7;"></span>🟡 노랑 = 본문 내용</span>
+      </div>
+      <div class="tip">
+        💡 <strong>각 부서·학년 버튼을 클릭</strong>하면 해당 시트가 <strong>새 탭에서 열립니다</strong>. 📱 <strong>PC·태블릿·스마트폰 모두 최적화</strong>되어 어디서든 편하게 보실 수 있습니다.
+      </div>
+    </div>
+
+    <div class="page">
+
+      <!-- 🌟 학교 비전 배너 -->
+      <div class="vision-banner">
+        <span class="vision-text"><span class="edit-yellow"><span class="v-che">체<span class="hanja">(體)</span></span><span class="normal">·</span><span class="v-in">인<span class="hanja">(人)</span></span><span class="normal">·</span><span class="v-ji">지<span class="hanja">(知)</span></span><span class="normal">로 성장하는 </span><span class="highlight">행복한 배움터</span></span></span>
+      </div>
+
+      <!-- ① HEADER -->
+      <header class="doc-header">
+        <div class="left">
+          <span class="label"><span class="edit-red">2026학년도 1학기 학교교육과정 반성회 안내</span></span>
+          <h1><span class="edit-yellow">2026학년도 1학기 교육과정 반성회</span></h1>
+          <p class="subtitle"><span class="edit-yellow">부서별·학년부별 추진 실적과 개선 사항을 작성해 주세요</span></p>
+        </div>
+        <div class="meta">
+          <div><strong>발행</strong> · <span class="edit-green">교육연구부</span></div>
+          <div><strong>대상</strong> · <span class="edit-green">전 교직원</span></div>
+        </div>
+      </header>
+
+      <!-- 📅 제출 기한 안내 -->
+      <div class="deadline-box">
+        <div class="deadline-title">📅 제출 기한 안내 — 일정에 맞춰 작성해 주세요</div>
+        <div class="deadline-grid">
+          <div class="deadline-item">
+            <span class="dtag">🏢 기능부</span>
+            담당자 작성 <span class="date">7월 1일(수) ~ 2일(목)</span><br>
+            <strong>담당 부장 최종 확인(누락 여부)</strong> <span class="date">7월 3일(금)</span>
+          </div>
+          <div class="deadline-item">
+            <span class="dtag green">🎓 학년부</span>
+            학년협의회 후 입력 <span class="date">7월 6일(월) ~ 8일(수)</span><br>
+            <strong>학년 부장 한글파일 제출</strong> <span class="date">7월 10일(금)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🤖 AI 활용 안내 -->
+      <div class="ai-guide">
+        <div class="ai-title">🤖 생성형 AI 활용 TIP — 더 풍부한 반성회 자료 작성을 위해</div>
+        <div class="ai-content">
+          <strong>① 실적 정리:</strong> ChatGPT·제미나이에 활동 메모 입력 → 정돈된 문장으로 변환 ·
+          <strong>② 개선안 도출:</strong> "○○ 활동의 개선 방안 3가지" 형태로 질의 ·
+          <strong>③ 표·도표 제작:</strong> 데이터 표 형식 정리 요청 (※ 학생 개인정보 제외 필수)
+        </div>
+      </div>
+
+      <!-- 🏢 부서별 -->
+      <h2 class="section-title">🏢 부서별 작성 시트 <span class="sub">(클릭 시 새 탭에서 열립니다)</span></h2>
+      <div class="dept-grid">
+
+        <a class="dept-btn c1" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=1404796923#gid=1404796923" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">1</span>
+            <span class="dept-name"><span class="edit-yellow">교무부</span></span>
+            <span class="dept-icon">📋</span>
+          </div>
+          <div class="dept-desc">학사 운영·교직원 인사·교육과정 총괄</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c2" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=1560588552#gid=1560588552" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">2</span>
+            <span class="dept-name"><span class="edit-yellow">교육연구부</span></span>
+            <span class="dept-icon">📚</span>
+          </div>
+          <div class="dept-desc">수업 연구·평가·교사 전문성 신장</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c3" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=2140572466#gid=2140572466" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">3</span>
+            <span class="dept-name"><span class="edit-yellow">예체능 안전부</span></span>
+            <span class="dept-icon">🎨</span>
+          </div>
+          <div class="dept-desc">예체능 교육·안전 교육·체험 활동</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c4" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=1503965643#gid=1503965643" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">4</span>
+            <span class="dept-name"><span class="edit-yellow">학교폭력예방부</span></span>
+            <span class="dept-icon">🛡️</span>
+          </div>
+          <div class="dept-desc">학교폭력 예방·생활 지도·갈등 중재</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c5" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=485340499#gid=485340499" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">5</span>
+            <span class="dept-name"><span class="edit-yellow">인성진로부</span></span>
+            <span class="dept-icon">🌱</span>
+          </div>
+          <div class="dept-desc">인성 교육·진로 탐색·상담 활동</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c6" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=1197861335#gid=1197861335" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">6</span>
+            <span class="dept-name"><span class="edit-yellow">창의 융합부</span></span>
+            <span class="dept-icon">💡</span>
+          </div>
+          <div class="dept-desc">창의·융합 교육·AI·SW·디지털 역량</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+
+        <a class="dept-btn c7" href="https://docs.google.com/spreadsheets/d/1egFLKEqFbTS7-yh0CNqMCDaZxDHANuYsXGa30GyLJxk/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">
+          <div class="dept-head">
+            <span class="dept-num">7</span>
+            <span class="dept-name"><span class="edit-yellow">유치원</span></span>
+            <span class="dept-icon">🐣</span>
+          </div>
+          <div class="dept-desc">유아 교육·놀이 중심·발달 지원</div>
+          <span class="dept-action">📄 시트 열기</span>
+        </a>
+      </div>
+
+      <!-- 🎓 학년교육활동 평가 -->
+      <h2 class="section-title">🎓 7. 학년교육활동 평가 <span class="sub">(학년별 시트 — 학년협의회 후 입력)</span></h2>
+      <div class="grade-grid">
+        <a class="grade-btn gk" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=319420331#gid=319420331" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">🐣</div>
+          <div class="grade-name"><span class="edit-yellow">유치원</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g1" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=1342831992#gid=1342831992" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">1️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">1학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g2" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=212339308#gid=212339308" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">2️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">2학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g3" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=1426854626#gid=1426854626" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">3️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">3학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g4" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=1184816365#gid=1184816365" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">4️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">4학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g5" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=1328431537#gid=1328431537" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">5️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">5학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+        <a class="grade-btn g6" href="https://docs.google.com/spreadsheets/d/18h1tWmmrIBbO5dOhuywJmRi4MCjqT-HWQenOqIWFqvo/edit?gid=204499496#gid=204499496" target="_blank" rel="noopener noreferrer">
+          <div class="grade-icon">6️⃣</div>
+          <div class="grade-name"><span class="edit-yellow">6학년</span></div>
+          <span class="grade-action">시트 열기</span>
+        </a>
+      </div>
+
+      <!-- ⚠️ 주의사항 -->
+      <div class="warning">
+        <div class="wtitle">⚠️ 작성 시 꼭 확인해 주세요</div>
+        <ul>
+          <li>💾 구글 시트는 <span class="em">자동 저장</span>되지만 작성 후 새로고침으로 확인 · 🔒 학생 <span class="em">개인정보(이름·반·번호) 기재 금지</span></li>
+          <li>🤝 동시 편집 시 <span class="em">같은 셀 중복 입력 주의</span> · 🤖 AI 활용 시 <span class="em">학교 고유 정보 제외</span>하고 일반화하여 질의</li>
+        </ul>
+      </div>
+
+      <!-- 📌 참고자료 (패들렛) - NEW -->
+      <div class="reference-section">
+        <div class="ref-icon">📌</div>
+        <div class="ref-content">
+          <div class="ref-title"><span class="edit-yellow">참고자료 — 2026학년도 1학기 교육과정 자료실 (Padlet)</span></div>
+          <div class="ref-desc">반성회 작성에 참고할 수 있는 <strong>자료·예시·아이디어</strong>를 모아둔 공간입니다. 작성 전 한 번 확인해 주세요!</div>
+        </div>
+        <a class="ref-btn" href="https://padlet.com/troimerai14/2026-1-4fgab60e9nolb7xq" target="_blank" rel="noopener noreferrer">
+          📋 패들렛 열기
+        </a>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="doc-footer">
+        <div class="cheer">💚 1학기 동안의 노고에 감사드리며, 더 나은 2학기를 함께 만들어 갑니다</div>
+        <div><span class="edit-green">교육연구부</span> · <span class="edit-yellow">2026학년도 1학기 교육과정 반성회 안내</span> · <span class="edit-green">2026</span></div>
+      </footer>
+
+    </div>
+  
+</body>
+</html>
